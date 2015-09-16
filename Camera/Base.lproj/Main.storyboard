@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9046" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9035"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Camera" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +16,47 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x9X-nd-jau">
+                                <rect key="frame" x="211" y="50" width="176" height="38"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Tap for the camera"/>
+                                <connections>
+                                    <action selector="captureButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hXK-9T-V7v"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V21-QA-g7A">
+                                <rect key="frame" x="150" y="150" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="MSW-ER-4E1"/>
+                                    <constraint firstAttribute="height" constant="300" id="hXq-Cr-AJg"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vcn-Ar-CmB">
+                                <rect key="frame" x="259" y="530" width="82" height="30"/>
+                                <state key="normal" title="Clear image"/>
+                                <connections>
+                                    <action selector="clearButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JHB-hV-Tk1"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="x9X-nd-jau" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="67Z-f7-QaS"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Vcn-Ar-CmB" secondAttribute="bottom" constant="40" id="955-4H-HvZ"/>
+                            <constraint firstItem="Vcn-Ar-CmB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9QM-Pa-TnQ"/>
+                            <constraint firstItem="V21-QA-g7A" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GdM-Iw-hWL"/>
+                            <constraint firstItem="V21-QA-g7A" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Kkf-hY-2Xk"/>
+                            <constraint firstItem="x9X-nd-jau" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="30" id="c3I-26-A3E"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="myimage" destination="V21-QA-g7A" id="qbn-r3-aJD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="305" y="347"/>
         </scene>
     </scenes>
 </document>
